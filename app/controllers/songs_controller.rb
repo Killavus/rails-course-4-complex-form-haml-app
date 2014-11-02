@@ -14,16 +14,19 @@ class SongsController < ApplicationController
 
   # GET /songs/new
   def new
+    @genres = Genre.all
     @song = Song.new
   end
 
   # GET /songs/1/edit
   def edit
+    @genres = Genre.all
   end
 
   # POST /songs
   # POST /songs.json
   def create
+    @genres = Genre.all
     @song = Song.new(song_params)
 
     respond_to do |format|
@@ -40,6 +43,8 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1
   # PATCH/PUT /songs/1.json
   def update
+    @genres = Genre.all
+
     respond_to do |format|
       if @song.update(song_params)
         format.html { redirect_to @song, notice: 'Song was successfully updated.' }
@@ -69,6 +74,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :artist, :album)
+      params.require(:song).permit(:title, :artist, :album, :genre_id)
     end
 end

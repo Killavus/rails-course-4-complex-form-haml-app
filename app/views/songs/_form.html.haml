@@ -15,5 +15,8 @@
   .field
     = f.label :artist
     = f.text_field :artist
+  .field
+    = f.label :genre
+    = f.collection_select :genre_id, @genres, :id, :name, prompt: 'Select Genre'
   .actions
     = f.submit 'Save'
