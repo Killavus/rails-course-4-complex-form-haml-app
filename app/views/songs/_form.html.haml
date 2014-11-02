@@ -18,5 +18,9 @@
   .field
     = f.label :genre
     = f.collection_select :genre_id, @genres, :id, :name, prompt: 'Select Genre'
+  .field
+    = f.fields_for :song_lyrics, @song.song_lyrics do |lyrics_f|
+      = lyrics_f.label "Lyrics:"
+      = lyrics_f.text_area :text
   .actions
     = f.submit 'Save'

@@ -12,6 +12,11 @@
   %b Artist:
   = @song.artist
 
+%p
+  %b Lyrics:
+  %pre
+    = @song.song_lyrics.text
+
 = link_to 'Edit', edit_song_path(@song)
 \|
 = link_to 'Back', songs_path

@@ -16,6 +16,7 @@ class SongsController < ApplicationController
   def new
     @genres = Genre.all
     @song = Song.new
+    @song.build_song_lyrics
   end
 
   # GET /songs/1/edit
@@ -74,6 +75,6 @@ class SongsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def song_params
-      params.require(:song).permit(:title, :artist, :album, :genre_id)
+      params.require(:song).permit(:title, :artist, :album, :genre_id, song_lyrics_attributes: [:text])
     end
 end
