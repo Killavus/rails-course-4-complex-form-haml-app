@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102022812) do
+ActiveRecord::Schema.define(version: 20141102023036) do
+
+  create_table "genres", force: true do |t|
+    t.string   "name"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "song_lyrics", force: true do |t|
     t.text     "text"
