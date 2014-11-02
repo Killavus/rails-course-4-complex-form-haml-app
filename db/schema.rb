@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102022708) do
+ActiveRecord::Schema.define(version: 20141102022812) do
+
+  create_table "song_lyrics", force: true do |t|
+    t.text     "text"
+    t.integer  "song_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "song_lyrics", ["song_id"], name: "index_song_lyrics_on_song_id"
 
   create_table "songs", force: true do |t|
     t.string   "title"
